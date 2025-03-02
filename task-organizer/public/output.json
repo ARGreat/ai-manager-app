@@ -1,10 +1,18 @@
 [
     {
-        "category": "Admin",
+        "category": "Propulsion",
         "tasks": [
             {
-                "name": "eat some chips",
-                "dueDate": "03/02/2025"
+                "name": "define motor geometry",
+                "dueDate": ""
+            },
+            {
+                "name": "thrust analysis calculations",
+                "dueDate": ""
+            },
+            {
+                "name": "choose type of solid fuel",
+                "dueDate": ""
             }
         ]
     },
@@ -12,8 +20,16 @@
         "category": "Electronics",
         "tasks": [
             {
-                "name": "Marius drink a Celsius",
+                "name": "draw electronics diagram for sensors",
                 "dueDate": "03/03/2025"
+            },
+            {
+                "name": "test Arduino",
+                "dueDate": ""
+            },
+            {
+                "name": "ensure code works before integration",
+                "dueDate": ""
             }
         ]
     },
@@ -21,8 +37,20 @@
         "category": "Structures",
         "tasks": [
             {
-                "name": "build the entire static test stand",
-                "dueDate": "03/10/2025"
+                "name": "build test stand",
+                "dueDate": "03/02/2025"
+            },
+            {
+                "name": "assemble test stand",
+                "dueDate": ""
+            },
+            {
+                "name": "strength test test stand",
+                "dueDate": ""
+            },
+            {
+                "name": "set up hydraulic press for testing",
+                "dueDate": ""
             }
         ]
     }

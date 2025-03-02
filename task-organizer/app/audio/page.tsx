@@ -2,7 +2,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -17,6 +17,10 @@ export default function AudioPage() {
   const [tasks, setTasks] = useState<string[]>([]);
   const router = useRouter();
 
+  useEffect(() => {
+    console.log('NEXT_PUBLIC_API_URL:', process.env.NEXT_PUBLIC_API_URL);
+  }, []);
+
   const handleAudioCaptured = (blob: Blob) => {
     setAudioBlob(blob);
   };
@@ -30,7 +34,7 @@ export default function AudioPage() {
     formData.append("audio", audioBlob, "inputAudio.mp3");
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/uploadedFile`, {
+      const response = await fetch(`http://localhost:3001/uploadedFile`, {
         method: "POST",
         body: formData,
       });

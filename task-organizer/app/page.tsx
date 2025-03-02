@@ -52,7 +52,7 @@ const TaskPage: React.FC = () => {
         const fetchCategories = async () => {
             try {
                 console.log('Fetching categories from /getToDo');
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}:3001/getToDo`);
+                const response = await fetch('http://localhost:3001/getToDo');
                 console.log('Response status:', response.status);
                 if (!response.ok) {
                     throw new Error("Failed to fetch categories");
