@@ -51,8 +51,8 @@ const TaskPage: React.FC = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                console.log('Fetching categories from /getToDo');
-                const response = await fetch('http://localhost:3001/getToDo');
+                console.log('Fetching categories from /api/getToDo');
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/getToDo`);
                 console.log('Response status:', response.status);
                 if (!response.ok) {
                     throw new Error("Failed to fetch categories");

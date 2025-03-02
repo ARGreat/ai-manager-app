@@ -34,7 +34,7 @@ export default function AudioPage() {
     formData.append("audio", audioBlob, "inputAudio.mp3");
 
     try {
-      const response = await fetch(`http://localhost:3001/uploadedFile`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/uploadedFile`, {
         method: "POST",
         body: formData,
       });
