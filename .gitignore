@@ -28,3 +28,4 @@ Thumbs.db   # Windows
 /myvenv
 backend/path_stuff.py
 backend/path_stuff.py
+.vercel
