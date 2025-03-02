@@ -6,6 +6,15 @@
   },
   "dependencies": {
     "amqplib": "^0.5.2",
-    "...other dependencies..."
+    "next": "^15.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "cors": "^2.8.5",
+    "lucide-react": "^0.1.0",
+    "@components/audio-recorder": "^1.0.0",
+    "@components/ui/card": "^1.0.0",
+    "@components/ui/tabs": "^1.0.0"
   }
 }
