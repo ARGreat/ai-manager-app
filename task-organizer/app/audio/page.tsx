@@ -30,7 +30,7 @@ export default function AudioPage() {
     formData.append("audio", audioBlob, "inputAudio.mp3");
 
     try {
-      const response = await fetch("http://localhost:3001/uploadedFile", {
+      const response = await fetch("http://<VM_IP_ADDRESS>:3001/uploadedFile", {
         method: "POST",
         body: formData,
       });

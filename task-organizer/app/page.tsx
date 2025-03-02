@@ -51,11 +51,14 @@ const TaskPage: React.FC = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("/output.json");
+                console.log('Fetching categories from /getToDo');
+                const response = await fetch('http://localhost:3001/getToDo');
+                console.log('Response status:', response.status);
                 if (!response.ok) {
                     throw new Error("Failed to fetch categories");
                 }
                 const data: Category[] = await response.json();
+                console.log('Fetched categories:', data);
 
                 const updatedData = data.map((cat) => ({
                     category: cat.category,
