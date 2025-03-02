@@ -1,4 +1,4 @@
-// pages/index.tsx
+// filepath: /c:/SPRING2025/HackCU11/ai-manager-app/task-organizer/app/audio/page.tsx
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -30,7 +30,7 @@ export default function AudioPage() {
     formData.append("audio", audioBlob, "inputAudio.mp3");
 
     try {
-      const response = await fetch("http://<VM_IP_ADDRESS>:3001/uploadedFile", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/uploadedFile`, {
         method: "POST",
         body: formData,
       });

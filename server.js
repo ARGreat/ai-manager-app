@@ -32,7 +32,7 @@ const upload = multer({ storage });
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/getToDo', (req, res) => {
-  const outputFilePath = path.join(__dirname, 'public/output.json');
+  const outputFilePath = path.join(__dirname, 'task-organizer/public/output.json');
   
   console.log(`Fetching data from: ${outputFilePath}`);
   
@@ -43,6 +43,7 @@ app.get('/getToDo', (req, res) => {
     }
     
     console.log('Data fetched successfully:', data);
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Manually set the CORS header
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
   });
@@ -88,30 +89,3 @@ app.post('/uploadedFile', upload.single('audio'), (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
-const handleProcessAudio = async () => {
-  if (!audioBlob) return;
-
-  setIsProcessing(true);
-
-  const formData = new FormData();
-  formData.append("audio", audioBlob, "inputAudio.mp3"); // Append the audioBlob with a filename
-
-  try {
-    const response = await fetch("http://localhost:3001/uploadedFile", { // Ensure the correct server URL
-      method: "POST",
-      body: formData,
-    });
-
-    if (response.ok) {
-      const { id, tasks } = await response.json();
-      setTasks(tasks);
-      router.push(`/results/${id}`);
-    } else {
-      throw new Error("Failed to process audio");
-    }
-  } catch (error) {
-    console.error("Error processing audio:", error);
-    setIsProcessing(false);
-  }
-};
