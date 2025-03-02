@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "task-organizer/server.js", "use": "@vercel/node" },
+    { "src": "task-organizer/package.json", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "task-organizer/server.js" },
+    { "src": "/(.*)", "dest": "task-organizer/$1" }
+  ]
+}
